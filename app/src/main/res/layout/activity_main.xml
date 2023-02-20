@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <EditText
+        android:id="@+id/urlinput"
+        android:layout_width="fill_parent"
+        android:layout_height="50sp"
+        android:layout_marginTop="30dp"
+        android:text="Введите URL базы данных"
+        android:textAlignment="center"
+        tools:ignore="MissingConstraints"
+        app:layout_editor_absoluteX="16dp"
+        app:layout_editor_absoluteY="40dp"
+        />
+
+    <EditText
+        android:id="@+id/input1"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:fontFamily="@font/archivo_black"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/urlinput" />
+
+    <EditText
+        android:id="@+id/input2"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Pass"
+        android:fontFamily="@font/archivo_black"
+        app:layout_constraintEnd_toEndOf="@id/urlinput"
+        app:layout_constraintBaseline_toBaselineOf="@id/input1"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/input3"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Номер офиса"
+        android:fontFamily="@font/archivo_black"
+        app:layout_constraintTop_toBottomOf="@id/input1"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        />
+
+    <EditText
+        android:id="@+id/input4"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Текст"
+        android:fontFamily="@font/archivo_black"
+        app:layout_constraintEnd_toEndOf="@id/urlinput"
+        app:layout_constraintBaseline_toBaselineOf="@id/input3"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        />
+
+    <Button
+        android:id="@+id/btn_request"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:onClick="send_req"
+        android:text="Send"
+        app:layout_constraintTop_toBottomOf="@+id/input3"
+        tools:ignore="MissingConstraints"
+        app:layout_editor_absoluteX="16dp"
+        />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Поле для вывода результата"
+        app:layout_constraintTop_toBottomOf="@+id/btn_request"
+        android:layout_marginTop="18dp"
+        android:textAlignment="center"
+        tools:ignore="MissingConstraints"
+        app:layout_editor_absoluteX="0dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
