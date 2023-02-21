@@ -1,5 +1,6 @@
 package com.example.bckapp
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.net.URL
@@ -12,6 +13,7 @@ import java.io.DataOutputStream
 import java.io.InputStreamReader
 import androidx.fragment.app.DialogFragment
 import android.app.Dialog
+import android.content.Context
 import android.content.SharedPreferences
 import android.provider.ContactsContract.Data
 import android.widget.Button
@@ -25,6 +27,10 @@ import org.json.JSONObject
 import java.io.OutputStreamWriter
 import java.net.HttpURLConnection
 import android.util.Log
+import android.widget.Toast
+import org.json.JSONArray
+import org.json.JSONTokener
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -47,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         btnSend.setOnClickListener() {
                 val PostData = "act=auth&login=${login.text}&pass=${pass.text}&uid=${db.getUid().toString()}"
                 GlobalScope.launch (Dispatchers.IO) {
-                    val url = URL("https://script.google.com/macros/s/AKfycbxjeGVbvv4VtDHPae-5u-qdVwMNtyzqmeMGNkgGY98B9WwSENyYD_pOUY7S2ywIp5mKJg/exec")
+                    val url = URL("https://script.google.com/macros/s/AKfycbxzGSkYd5x5ji_LvnjgO9p53BqBxAiUNSvkS6Yp9wLy7ESznhbkdUCkmf-9Cw66yuZasQ/exec")
                     val conn = url.openConnection() as HttpURLConnection
                     conn.requestMethod = "POST"
                     conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
@@ -62,10 +68,11 @@ class MainActivity : AppCompatActivity() {
                     if (status == HttpURLConnection.HTTP_OK) {
                         val response = conn.inputStream.bufferedReader()
                             .use { it.readText() }
-                        withContext((Dispatchers.Main)) {
-                            Log.d("JSON:", response)
+                            withContext((Dispatchers.Main)) {
+                                val jsonArray = JSONTokener(response).nextValue() as JSONArray
+                                Log.d("JSON", jsonArray.toString())
                             result.text = response.toString()
-                            db.addUid(response.toString())
+                            db.addUid(response)
                             Log.d("Test:", db.getUid().toString())
                         }
                 }
