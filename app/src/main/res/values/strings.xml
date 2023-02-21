@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">BCKapp</string>
+    <string name="name">БЦ Карачарово</string>
+    <string name="btn_register">Войти</string>
+    <string name="uid">no</string>
 </resources>

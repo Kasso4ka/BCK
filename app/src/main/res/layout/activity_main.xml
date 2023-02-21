@@ -8,75 +8,60 @@
 
 
 
-    <EditText
-        android:id="@+id/urlinput"
-        android:layout_width="fill_parent"
-        android:layout_height="50sp"
-        android:layout_marginTop="30dp"
-        android:text="Введите URL базы данных"
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/view1"
+        android:layout_margin="40sp"
+        android:textSize="40sp"
+        android:text="@string/name"
         android:textAlignment="center"
-        tools:ignore="MissingConstraints"
-        app:layout_editor_absoluteX="16dp"
-        app:layout_editor_absoluteY="40dp"
+        android:textColor="@color/black"
         />
+
+
+
+
 
     <EditText
         android:id="@+id/input1"
-        android:layout_width="200sp"
+        android:layout_width="180sp"
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:fontFamily="@font/archivo_black"
-        android:text="Login"
+        android:hint="Login"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/urlinput" />
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <EditText
         android:id="@+id/input2"
-        android:layout_width="200sp"
+        android:layout_width="180sp"
         android:layout_height="wrap_content"
-        android:text="Pass"
+        android:hint="Pass"
         android:fontFamily="@font/archivo_black"
-        app:layout_constraintEnd_toEndOf="@id/urlinput"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@id/input1"
         android:textAlignment="center"
         android:textSize="20sp"
         android:layout_margin="10dp"
         />
 
-    <EditText
-        android:id="@+id/input3"
-        android:layout_width="200sp"
-        android:layout_height="wrap_content"
-        android:text="Номер офиса"
-        android:fontFamily="@font/archivo_black"
-        app:layout_constraintTop_toBottomOf="@id/input1"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_margin="10dp"
-        />
-
-    <EditText
-        android:id="@+id/input4"
-        android:layout_width="200sp"
-        android:layout_height="wrap_content"
-        android:text="Текст"
-        android:fontFamily="@font/archivo_black"
-        app:layout_constraintEnd_toEndOf="@id/urlinput"
-        app:layout_constraintBaseline_toBaselineOf="@id/input3"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:layout_margin="10dp"
-        />
 
     <Button
         android:id="@+id/btn_request"
-        android:layout_width="fill_parent"
+        android:layout_margin="100sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
-        android:onClick="send_req"
-        android:text="Send"
-        app:layout_constraintTop_toBottomOf="@+id/input3"
+        android:text="@string/btn_register"
+        android:backgroundTint="@color/btn"
+        android:textColor="@color/textbtn"
+        android:textColorHighlight="@color/black"
+        app:flow_horizontalAlign="center"
+        app:layout_constraintTop_toBottomOf="@id/input1"
         tools:ignore="MissingConstraints"
         app:layout_editor_absoluteX="16dp"
         />
